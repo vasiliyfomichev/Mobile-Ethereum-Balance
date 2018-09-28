@@ -4,20 +4,29 @@
              xmlns:local="clr-namespace:VF.Ethereum.AccountBalance"
              x:Class="VF.Ethereum.AccountBalance.MainPage">
 
-    <StackLayout BackgroundColor="Green">
-        <!-- Place new controls here -->
-        <ListView ItemsSource="{Binding MyList}"
-           IsPullToRefreshEnabled="True"
-           RefreshCommand="{Binding RefreshCommand}"
-           IsRefreshing="{Binding IsRefreshing}" />
+    <StackLayout BackgroundColor="#ef8321">
+
+       
+        <Label Text="Vasiliy Fomichev" HorizontalTextAlignment="End" HorizontalOptions="End" TextColor="White" Margin="5" FontSize="Micro" />
         
-        <Label Text="Welcome to Xamarin.Forms!" 
-           HorizontalOptions="Center"
-           VerticalOptions="CenterAndExpand" TextColor="White" />
-        <Label Text="9.99009990099" x:Name="lblBalance" FontSize="Large" TextColor="White" HorizontalOptions="Center"
+        <!-- Place new controls here -->
+        <AbsoluteLayout  >
+
+            <Image x:Name="myLocalImage" Opacity="1" Margin="75,0,0,0" Aspect="AspectFill" WidthRequest="105" HeightRequest="170" />
+            <ListView RowHeight="2"  ItemsSource ="{Binding Transactions}"  BackgroundColor="Transparent"
+           IsPullToRefreshEnabled="True"  AbsoluteLayout.LayoutBounds="0,0, 250, 200" Margin="0"
+           RefreshCommand="{Binding RefreshCommand}"
+           IsRefreshing="{Binding IsRefreshing}" /> 
+
+        </AbsoluteLayout>
+        <Label Text="Royalty balance:" HorizontalOptions="Center"  TextColor="White" />
+        <Label FontAttributes="Bold" Text="9.99009990099 ETH" x:Name="lblEthBalance" FontSize="35" TextColor="White" HorizontalOptions="Center"
            VerticalOptions="CenterAndExpand" />
-        <Label Text="ETH" HorizontalOptions="Center" TextColor="White"
+        <Label Text="$1234.48 USD" HorizontalOptions="Center" TextColor="White" x:Name="lblUsdBalance"
            VerticalOptions="CenterAndExpand" />
+
+
+        <Button Text="Withdraw" BackgroundColor="#21C293" TextColor="White" />
     </StackLayout>
     
 </ContentPage>
