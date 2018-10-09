@@ -56,7 +56,7 @@ namespace VF.Ethereum.AccountBalance
         {
             var ethBalance = GetAccountBalance();
             var usdBalance = GetUsdAmountAsync(ethBalance).Result;
-            lblEthBalance.Text = $"{Math.Round(ethBalance, 2)} ETH";
+            lblEthBalance.Text = $"{Math.Round(ethBalance, 5)} ETH";
             lblUsdBalance.Text = $"${Math.Round(usdBalance, 2)}";
         }
 
