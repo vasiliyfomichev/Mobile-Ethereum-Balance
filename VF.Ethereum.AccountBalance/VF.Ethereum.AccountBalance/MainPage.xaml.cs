@@ -64,7 +64,7 @@ namespace VF.Ethereum.AccountBalance
         {
             var web3 = new Web3("http://10.200.1.61:8545");
             var balance = web3.Eth.GetBalance.SendRequestAsync("0x3a37baf1e67ef4bfe1757dbdc5439590b91dd473").Result;
-            var eth = (new UnitConversion()).FromWei(balance.Value);
+            var eth = new UnitConversion().FromWei(balance.Value);
             return eth;
         }
 
